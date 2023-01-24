@@ -1413,7 +1413,7 @@ html,body{
     padding-top: 76px;
 }
 .footer-logo a, .footer-logo a:hover,.footer-logo a:focus {
-    color: #565a5c;
+    color: #ffffff;
     font-size:24px;
     font-family: 'Poppins', sans-serif;
     text-transform: capitalize;
@@ -1438,7 +1438,7 @@ html,body{
     margin-bottom:8px;
 }
 .single-footer-txt p a{
-    color:#565a5c;
+    color:#ffffff;
     font-size:16px;
     -webkit-transition: .5s ease-in-out; 
     -moz-transition:.5s ease-in-out; 
