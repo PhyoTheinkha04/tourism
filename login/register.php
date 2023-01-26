@@ -14,61 +14,55 @@
 </head>
 
 <body>
-    <?php
-    require_once "./member.php";
-       if(isset($_POST['submit'])){
-           $username =$_POST["username"];
-           $email = $_POST["email"];
-           $password = $_POST["password"];
+    <?php 
+// Start session 
+session_start(); 
+ 
+// Get data from session 
+$sessData = !empty($_SESSION['sessData'])?$_SESSION['sessData']:''; 
+ 
+// Get status from session 
+if(!empty($sessData['status']['msg'])){ 
+    $statusMsg = $sessData['status']['msg']; 
+    $status = $sessData['status']['type']; 
+    unset($_SESSION['sessData']['status']); 
+} 
+ 
+$postData = array(); 
+if(!empty($sessData['postData'])){ 
+    $postData = $sessData['postData']; 
+    unset($_SESSION['postData']); 
+} 
+?>
 
-           $ret = registerUser($username);
-           $ret2 = registerEmail($email);
-           $ret3 = registerPassword($password);
-           
-           
-         }else{
-            $ret = null;
-            $ret2 = null;
-            $ret3 = null;
+    <!-- Status message -->
 
-         }
-    ?>
     <div class="container">
+
         <div class="row px-3">
             <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
                 <div class="img-left d-none d-md-flex"></div>
 
                 <div class="card-body">
+                    <span><i class="" </i></span>
                     <h4 class="title text-center mt-4">
                         Register For More Informations!
                     </h4>
-                    <form action="register.php" class="form-box px-3" method="post">
+                    <form action="userAccount.php" class="form-box px-3" method="post">
                         <div class="form-input">
-                             <span><i class=""><?php echo $ret;?></i></span>
-                             
-                            <input type="username" name="username" id="username" placeholder="username" required>
-                            
+
                         </div>
                         <div class="form-input">
-                            <span><i class=""><?php echo $ret2;?></i></span>
-                            <input type="email" name="email" id="email" placeholder="Email Address" tabindex="10" required>
+
+                        </div>
+
+                        <div class="form-input">
+                            
                             
                         </div>
 
-
-                        <div class="form-input">
-                            <span><i class=""><?php echo $ret3;?></i></span>
-                            <input type="password" name="password" id="password" placeholder="Password" required>
-
                             <div class="mb-3">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="cb1" name="">
-                                    <label class="custom-control-label" for="cb1">Remember me</label>
-                                </div>
-                            </div>
-
-                            <div class="mb-3">
-                                <button type="submit" id="submit" name="submit" class="btn btn-block text-uppercase">
+                                <button type="submit" name="signupSubmit" class="btn btn-block text-uppercase">
                                     Register
                                 </button>
                             </div>
