@@ -38,11 +38,8 @@ if(!empty($sessData['postData'])){
     <!-- Status message -->
 
     <div class="container">
-        <div class="row px-3">
-            <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0 bg-black" 
-                style="text-align: center;cursor: pointer;
-                       width: 220px; background: rgb(255, 255, 255);border-radius: 5px;border: 1px solid rgba(0, 0, 255, .2);
-                       transition: all .2s;box-shadow: 12px 12px 2px 1px rgb(0 0 255 / 20%);">
+        <<div class="row px-3">
+            <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
                 <div class="img-left d-none d-md-flex"></div>
                 <div class="card-body">
                     <span><i class=""> </i></span>
@@ -50,11 +47,7 @@ if(!empty($sessData['postData'])){
                         Register For More Informations!
                     </h4>
                     <form action="userAccount.php" class="form-box px-3" method="post">
-                        <div class="">
-                        <?php if(!empty($statusMsg)){ ?>
-                        <div class="status-msg <?php echo $status; ?> card2"><?php echo $statusMsg; ?></div>
-                        <?php } ?>
-                        </div>
+                       
                         
                         <div class="form-input">
                             <input type="text" name="username" placeholder="Username"

@@ -10,7 +10,7 @@ $postData = $statusMsg = $valErr = '';
 $status = 'error'; 
 $redirectURL = 'index.php'; 
 if(isset($_POST['signupSubmit'])){ 
-    $redirectURL = 'registration.php'; 
+    $redirectURL = 'popup.php'; 
      
     // Get user's input 
     $postData = $_POST; 
@@ -68,7 +68,7 @@ if(isset($_POST['signupSubmit'])){
             } 
         } 
     }else{ 
-        $statusMsg = '<p>Please fill all the mandatory fields:</p>'.trim($valErr, '<br/>'.'<br/>'); 
+        $statusMsg = trim($valErr, '<br/>'); 
     } 
      
     // Store registration status into the SESSION 

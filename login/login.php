@@ -72,7 +72,7 @@
 
                         <div class="text-center mb-2">
                             Don't have an account?
-                            <a href="register.php" class="register-link">
+                            <a href="../php_login_system/registration.php" class="register-link">
                                 Register here
                             </a>
                         </div>
