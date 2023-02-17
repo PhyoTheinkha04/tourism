@@ -3,7 +3,26 @@
 include './html-head.php';
 
 ?>
-
+<?php 
+// Start session 
+session_start(); 
+ 
+// Get data from session 
+$sessData = !empty($_SESSION['sessData'])?$_SESSION['sessData']:''; 
+ 
+// Get status from session 
+if(!empty($sessData['status']['msg'])){ 
+    $statusMsg = $sessData['status']['msg']; 
+    $status = $sessData['status']['type']; 
+    unset($_SESSION['sessData']['status']); 
+} 
+ 
+$postData = array(); 
+if(!empty($sessData['postData'])){ 
+    $postData = $sessData['postData']; 
+    unset($_SESSION['postData']); 
+} 
+?>
 <!--[if lte IE 9]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
 			your browser</a> to improve your experience and security.</p>
@@ -39,10 +58,106 @@ include './html-head.php';
                                     <li class="smooth-menu"><a href="#home">home</a></li>
                                     <li class="smooth-menu"><a href="#gallery">Destination</a></li>
                                     <li class="smooth-menu"><a href="#blog">blog</a></li>
-                                    
+
                                     <li class=""><a href="../login/login.php">login</a></li>
                                     <!--/.project-btn-->
                                 </ul>
+                                <!-- partial:index.partial.html -->
+                                <div class="container2">
+                                    <button type="button" class="btn btn-info btn-round" data-toggle="modal"
+                                        data-target="#loginModal">
+                                        Login
+                                    </button>
+                                </div>
+
+                                <div class="container2">
+                                                    <div class="row px-3">
+                                                        <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+                                                            <div class="img-left d-none d-md-flex"></div>
+                                                            <div class="card-body">
+                                                                <div class="modal-header border-bottom-0">
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">×</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="d-flex flex-column text-center">
+                                                                    <span><i class=""> </i></span>
+                                                                    <h4 class="title text-center mt-4">
+                                                                        Register For More Informations!
+                                                                    </h4>
+                                                                    <form action="userAccount.php" class="form-box px-3"
+                                                                        method="post">
+                                                                        <div class="">
+                                                                            <?php if(!empty($statusMsg)){ ?>
+                                                                            <div
+                                                                                class="status-msg <?php echo $status; ?> card2">
+                                                                                <?php echo $statusMsg; ?></div>
+                                                                            <?php } ?>
+                                                                        </div>
+                                                                        <div class="form-input">
+                                                                            <div class="input-group">
+                                                                                <input autocomplete="off"
+                                                                                    name="username" id="username"
+                                                                                    class="input"
+                                                                                    value="<?php echo !empty($postData['username'])?$postData['username']:''; ?>"
+                                                                                    placeholder="Username">
+                                                                                <div></div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="form-input">
+                                                                            <div class="input-group">
+                                                                                <input autocomplete="off" name="email"
+                                                                                    id="email" class="input"
+                                                                                    type="email"
+                                                                                    value="<?php echo !empty($postData['email'])?$postData['email']:''; ?>"
+                                                                                    placeholder="Email">
+                                                                                <div></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-input">
+                                                                            <div class="input-group">
+                                                                                <input autocomplete="off"
+                                                                                    name="password" id="password"
+                                                                                    class="input" type="password"
+                                                                                    placeholder="Password">
+                                                                                <div></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-input">
+                                                                            <div class="input-group">
+
+                                                                                <input autocomplete="off"
+                                                                                    name="confirm_password"
+                                                                                    id="password" class="input"
+                                                                                    type="password"
+                                                                                    placeholder="Confirm Password">
+                                                                                <div></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="mb-3 send-button">
+                                                                            <div class="send-button">
+                                                                                <button type="submit"
+                                                                                    name="signupSubmit">submit</button>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="text-right">
+                                                                            <a href="login.php" class="forget-link">
+                                                                                Go Back To Login
+                                                                            </a>
+                                                                        </div>
+                                                                        <hr class="my-4">
+
+
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                <!-- partial -->
+
                             </div><!-- /.navbar-collapse -->
                         </div><!-- /.main-menu-->
                     </div><!-- /.col-->
@@ -212,9 +327,9 @@ include './html-head.php';
     <!--gallery end-->
 
 
-    
 
-   
+
+
 
     <!-- testemonial Start -->
     <section class="testemonial">
@@ -495,7 +610,7 @@ include './html-head.php';
     <!-- testemonial End -->
 
 
-  
+
 
     <!--blog start-->
     <section id="blog" class="blog">
@@ -651,101 +766,9 @@ include './html-head.php';
     </section>
     <!--subscribe end-->
     <!-- footer-copyright start -->
-    <footer class="footer-copyright">
-        <div class="container">
-            <div class="footer-content">
-                <div class="row">
+   
+    <?php
+//    include_once "tourism/html-head.php";
+include './htmlfoot.php';
 
-                    <div class="col-sm-3">
-                        <div class="single-footer-item">
-                            <div class="footer-logo">
-                                <a href="index.php">
-                                    Thunar<span>tour</span>
-                                </a>
-                                <p>
-                                    best travel agency
-                                </p>
-                            </div>
-                        </div>
-                        <!--/.single-footer-item-->
-                    </div>
-                    <!--/.col-->
-
-                    <div class="col-sm-3">
-                        <div class="single-footer-item">
-                            <h2>link</h2>
-                            <div class="single-footer-txt">
-                                <p><a href="#">home</a></p>
-                                <p><a href="#">destination</a></p>
-                                <p><a href="#">spacial packages</a></p>
-                                <p><a href="#">special offers</a></p>
-                                <p><a href="#">blog</a></p>
-                                <p><a href="#">contacts</a></p>
-                            </div>
-                            <!--/.single-footer-txt-->
-                        </div>
-                        <!--/.single-footer-item-->
-
-                    </div>
-                    <!--/.col-->
-
-                    <div class="col-sm-3">
-                        <div class="single-footer-item">
-                            <h2>popular destination</h2>
-                            <div class="single-footer-txt">
-                                <p><a href="#">china</a></p>
-                                <p><a href="#">venezuela</a></p>
-                                <p><a href="#">brazil</a></p>
-                                <p><a href="#">australia</a></p>
-                                <p><a href="#">london</a></p>
-                            </div>
-                            <!--/.single-footer-txt-->
-                        </div>
-                        <!--/.single-footer-item-->
-                    </div>
-                    <!--/.col-->
-
-                    <div class="col-sm-3">
-                        <div class="single-footer-item text-center">
-                            <h2 class="text-left">contacts</h2>
-                            <div class="single-footer-txt text-left">
-                                <p>+1 (300) 1234 6543</p>
-                                <p class="foot-email"><a href="#">info@tnest.com</a></p>
-                                <p>North Warnner Park 336/A</p>
-                                <p>Newyork, USA</p>
-                            </div>
-                            <!--/.single-footer-txt-->
-                        </div>
-                        <!--/.single-footer-item-->
-                    </div>
-                    <!--/.col-->
-
-                </div>
-                <!--/.row-->
-
-            </div>
-            <!--/.footer-content-->
-            <hr>
-            <div class="foot-icons ">
-                <ul class="footer-social-links list-inline list-unstyled">
-                    <li><a href="#" target="_blank" class="foot-icon-bg-1"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#" target="_blank" class="foot-icon-bg-2"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#" target="_blank" class="foot-icon-bg-3"><i class="fa fa-instagram"></i></a></li>
-                </ul>
-                <p>&copy; 2023 <a href="http://maymyanmarlin.com/">May myanmar lin</a>. All Right Reserved</p>
-
-            </div>
-            <!--/.foot-icons-->
-            <div id="scroll-Top">
-                <i class="fa fa-angle-double-up return-to-top" id="scroll-top" data-toggle="tooltip"
-                    data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
-            </div>
-            <!--/.scroll-Top-->
-        </div><!-- /.container-->
-
-    </footer><!-- /.footer-copyright-->
-    <!-- footer-copyright end -->
-
-</body>
-
-</html>
+?>
