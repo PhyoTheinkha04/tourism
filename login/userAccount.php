@@ -8,9 +8,9 @@ $user = new User();
  
 $postData = $statusMsg = $valErr = ''; 
 $status = 'error'; 
-$redirectURL = 'index.php'; 
+$redirectURL = 'login.php'; 
 if(isset($_POST['signupSubmit'])){ 
-    $redirectURL = 'popup.php'; 
+    $redirectURL = 'register.php'; 
      
     // Get user's input 
     $postData = $_POST; 
@@ -62,7 +62,7 @@ if(isset($_POST['signupSubmit'])){
                 $statusMsg = 'Your account has been registered successfully, login to the account.'; 
                 $postData = ''; 
                  
-                $redirectURL = 'index.php'; 
+                $redirectURL = 'login.php'; 
             }else{ 
                 $statusMsg = 'Something went wrong, please try again after some time.'; 
             } 
@@ -106,6 +106,7 @@ if(isset($_POST['signupSubmit'])){
         $userData = $user->getRows($conditions); 
          
         if(!empty($userData)){ 
+           
             $status = 'success'; 
             $statusMsg = 'Welcome '.$userData['first_name'].'!'; 
             $postData = ''; 
@@ -116,7 +117,7 @@ if(isset($_POST['signupSubmit'])){
             $statusMsg = 'Wrong email or password, please try again!'; 
         } 
     }else{ 
-        $statusMsg = '<p>Please fill all the mandatory fields:</p>'.trim($valErr, '<br/>'); 
+        $statusMsg = $valErr. '<br/>'; 
     } 
      
     // Store login status into the SESSION 
@@ -126,7 +127,7 @@ if(isset($_POST['signupSubmit'])){
     $_SESSION['sessData'] = $sessData; 
      
     // Redirect to the home page 
-    header("Location: $redirectURL"); 
+    header("Location: ../login/login.php"); 
 }elseif(!empty($_REQUEST['logoutSubmit'])){ 
     // Remove session data 
     unset($_SESSION['sessData']); 

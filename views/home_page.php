@@ -53,6 +53,7 @@ if(!empty($sessData['postData'])){
                                     <i class="fa fa-bars"></i>
                                 </button><!-- / button-->
                             </div><!-- /.navbar-header-->
+
                             <div class="collapse navbar-collapse">
                                 <ul class="nav navbar-nav navbar-right">
                                     <li class="smooth-menu"><a href="#home">home</a></li>
@@ -61,109 +62,32 @@ if(!empty($sessData['postData'])){
 
                                     <li class=""><a href="../login/login.php">login</a></li>
                                     <!--/.project-btn-->
+
                                 </ul>
-                                <!-- partial:index.partial.html -->
-                                <div class="container2">
-                                    <button type="button" class="btn btn-info btn-round" data-toggle="modal"
-                                        data-target="#loginModal">
-                                        Login
-                                    </button>
-                                </div>
 
-                                <div class="container2">
-                                                    <div class="row px-3">
-                                                        <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
-                                                            <div class="img-left d-none d-md-flex"></div>
-                                                            <div class="card-body">
-                                                                <div class="modal-header border-bottom-0">
-                                                                    <button type="button" class="close"
-                                                                        data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">×</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="d-flex flex-column text-center">
-                                                                    <span><i class=""> </i></span>
-                                                                    <h4 class="title text-center mt-4">
-                                                                        Register For More Informations!
-                                                                    </h4>
-                                                                    <form action="userAccount.php" class="form-box px-3"
-                                                                        method="post">
-                                                                        <div class="">
-                                                                            <?php if(!empty($statusMsg)){ ?>
-                                                                            <div
-                                                                                class="status-msg <?php echo $status; ?> card2">
-                                                                                <?php echo $statusMsg; ?></div>
-                                                                            <?php } ?>
-                                                                        </div>
-                                                                        <div class="form-input">
-                                                                            <div class="input-group">
-                                                                                <input autocomplete="off"
-                                                                                    name="username" id="username"
-                                                                                    class="input"
-                                                                                    value="<?php echo !empty($postData['username'])?$postData['username']:''; ?>"
-                                                                                    placeholder="Username">
-                                                                                <div></div>
-                                                                            </div>
+                            </div>
+                            <div class="form-popup" id="myForm">
+                                <form action="/action_page.php" class="form-container">
+                                    <h1>Login</h1>
 
-                                                                        </div>
-                                                                        <div class="form-input">
-                                                                            <div class="input-group">
-                                                                                <input autocomplete="off" name="email"
-                                                                                    id="email" class="input"
-                                                                                    type="email"
-                                                                                    value="<?php echo !empty($postData['email'])?$postData['email']:''; ?>"
-                                                                                    placeholder="Email">
-                                                                                <div></div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-input">
-                                                                            <div class="input-group">
-                                                                                <input autocomplete="off"
-                                                                                    name="password" id="password"
-                                                                                    class="input" type="password"
-                                                                                    placeholder="Password">
-                                                                                <div></div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-input">
-                                                                            <div class="input-group">
+                                    <label for="email"><b>Email</b></label>
+                                    <input type="text" placeholder="Enter Email" name="email" required>
 
-                                                                                <input autocomplete="off"
-                                                                                    name="confirm_password"
-                                                                                    id="password" class="input"
-                                                                                    type="password"
-                                                                                    placeholder="Confirm Password">
-                                                                                <div></div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="mb-3 send-button">
-                                                                            <div class="send-button">
-                                                                                <button type="submit"
-                                                                                    name="signupSubmit">submit</button>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="text-right">
-                                                                            <a href="login.php" class="forget-link">
-                                                                                Go Back To Login
-                                                                            </a>
-                                                                        </div>
-                                                                        <hr class="my-4">
+                                    <label for="psw"><b>Password</b></label>
+                                    <input type="password" placeholder="Enter Password" name="psw" required>
 
+                                    <button type="submit" class="btn">Login</button>
+                                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                                </form>
+                            </div>
+                            <!-- partial -->
 
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                <!-- partial -->
-
-                            </div><!-- /.navbar-collapse -->
-                        </div><!-- /.main-menu-->
-                    </div><!-- /.col-->
-                </div><!-- /.row -->
-                <div class="home-border"></div><!-- /.home-border-->
-            </div><!-- /.container-->
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.main-menu-->
+                </div><!-- /.col-->
+            </div><!-- /.row -->
+            <div class="home-border"></div><!-- /.home-border-->
+        </div><!-- /.container-->
         </div><!-- /.header-area -->
 
     </header><!-- /.top-area-->
@@ -277,7 +201,7 @@ if(!empty($sessData['postData'])){
 
                                 <div class="col-md-4">
                                     <div class="filtr-item">
-                                        <img src="../assets/images/gallary/g4 .jpg" alt="portfolio image" />
+                                        <img src="../assets/images/gallary/g4.jpg" alt="portfolio image" />
                                         <div class="item-title">s
                                             <a href="#">
                                                 australia
@@ -742,31 +666,29 @@ if(!empty($sessData['postData'])){
         <div class="container">
             <div class="subscribe-title text-center">
                 <h2>
-                    Join our Subscribers List to Get Regular Update
+                    Join our team for your trip
                 </h2>
                 <p>
-                    Subscribe Now. We will send you Best offer for your Trip
+                    sign up now!
                 </p>
             </div>
-            <form>
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-                        <div class="custom-input-group">
-                            <input type="email" class="form-control" placeholder="Enter your Email Here">
-                            <button class="appsLand-btn subscribe-btn">Subscribe</button>
-                            <div class="clearfix"></div>
-                            <i class="fa fa-envelope"></i>
-                        </div>
 
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div class="custom-input-group">
+                        <button class="appsLand-btn subscribe-btn"><a href="../login/login.php">login</a></button>
+                        <div class="clearfix"></div>
                     </div>
+
                 </div>
-            </form>
+            </div>
+
         </div>
 
     </section>
     <!--subscribe end-->
     <!-- footer-copyright start -->
-   
+
     <?php
 //    include_once "tourism/html-head.php";
 include './htmlfoot.php';
