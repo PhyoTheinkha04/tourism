@@ -31,16 +31,13 @@ if(!empty($sessData['userLoggedIn']) && !empty($sessData['userID'])){
 ?>
 
 <?php if(!empty($userData)){ ?>
-<h2>Welcome <?php echo $userData['username']; ?>!</h2>
-
+<!-- <h2>Welcome <?php echo $userData['username']; ?>!</h2> -->
+<?php include 'index.php';?>
 <a href="userAccount.php?logoutSubmit=1" class="logout">Logout</a>
 
 <div class="regisFrm">
-
-    <p><b>Name: </b><?php echo $userData['username']; ?></p>
-    <p><b>Email: </b><?php echo $userData['email']; ?></p>
 </div>
-<?php include '/index.php';?>
+
 <?php }else{ ?>
 
 <!-- Status message -->
