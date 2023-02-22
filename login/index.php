@@ -31,12 +31,11 @@ include './html-head2.php';
                     <div class="col-sm-10">
                         <div class="main-menu">
 
-                            <a href="userAccount.php?logoutSubmit=1" class="logout">Logout</a>
+                          
 
                             <div class="regisFrm">
 
-                                <p><b>Name: </b><?php echo $userData['username']; ?></p>
-                                <p><b>Email: </b><?php echo $userData['email']; ?></p>
+                               
                             </div>
                             <!-- Brand and toggle get grouped for better mobile display -->
                             <div class="navbar-header">
@@ -52,11 +51,11 @@ include './html-head2.php';
                                     <li class="smooth-menu"><a href="#pack">Packages </a></li>
                                     <li class="smooth-menu"><a href="#spo">Special Offers</a></li>
                                     <li class="smooth-menu"><a href="#blog">blog</a></li>
-                                    <li class="smooth-menu"><a href="#subs">subscription</a></li>
+                                    <li class="smooth-menu"><a href="#subs">subscription</a></li> 
                                     <li>
-                                        <button class="book-btn">book now
-                                        </button>
+                                        <a href="userAccount.php?logoutSubmit=1" class="logout">Logout</a>
                                     </li>
+                                    
                                     <!--/.project-btn-->
                                 </ul>
                             </div><!-- /.navbar-collapse -->
@@ -83,11 +82,6 @@ include './html-head2.php';
                                 <h2>
                                     Explore the Beauty of the Beautiful World
                                 </h2>
-                                <div class="about-btn">
-                                    <button class="about-view">
-                                        explore now
-                                    </button>
-                                </div>
                                 <!--/.about-btn-->
                             </div>
                             <!--/.about-us-txt-->
@@ -145,7 +139,6 @@ include './html-head2.php';
                                             <a href="#">
                                                 china
                                             </a>
-                                            <p><span>20 tours</span><span>15 places</span></p>
                                         </div><!-- /.item-title -->
                                     </div><!-- /.filtr-item -->
                                 </div><!-- /.col -->
@@ -157,7 +150,7 @@ include './html-head2.php';
                                             <a href="#">
                                                 venuzuala
                                             </a>
-                                            <p><span>12 tours</span><span>9 places</span></p>
+                                            
                                         </div> <!-- /.item-title-->
                                     </div><!-- /.filtr-item -->
                                 </div><!-- /.col -->
@@ -169,7 +162,7 @@ include './html-head2.php';
                                             <a href="#">
                                                 brazil
                                             </a>
-                                            <p><span>25 tours</span><span>10 places</span></p>
+                                   
                                         </div><!-- /.item-title -->
                                     </div><!-- /.filtr-item -->
                                 </div><!-- /.col -->
@@ -181,7 +174,7 @@ include './html-head2.php';
                                             <a href="#">
                                                 australia
                                             </a>
-                                            <p><span>18 tours</span><span>9 places</span></p>
+                                          
                                         </div> <!-- /.item-title-->
                                     </div><!-- /.filtr-item -->
                                 </div><!-- /.col -->
@@ -193,7 +186,7 @@ include './html-head2.php';
                                             <a href="#">
                                                 netharlands
                                             </a>
-                                            <p><span>14 tours</span><span>12 places</span></p>
+                                     
                                         </div> <!-- /.item-title-->
                                     </div><!-- /.filtr-item -->
                                 </div><!-- /.col -->
@@ -205,7 +198,7 @@ include './html-head2.php';
                                             <a href="#">
                                                 turkey
                                             </a>
-                                            <p><span>14 tours</span><span>6 places</span></p>
+                    
                                         </div> <!-- /.item-title-->
                                     </div><!-- /.filtr-item -->
                                 </div><!-- /.col -->
@@ -232,7 +225,7 @@ include './html-head2.php';
             <div class="row">
                 <div class="col-sm-12">
                     <div class="dicount-offer-content text-center">
-                        <h2>Join with us within 7 March, 2019 and get upto 40% Discount</h2>
+                        <h2>Join with us within 22 feb, 2024 and get upto 40% Discount</h2>
                         <div class="campaign-timer">
                             <div id="timer">
                                 <div class="time time-after" id="days">
