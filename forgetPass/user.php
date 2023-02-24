@@ -1,17 +1,11 @@
 <?php
-/*
- * User Class
- * This class is used for database related (connect fetch, and insert) operations
- * @author    CodexWorld.com
- * @url       http://www.codexworld.com
- * @license   http://www.codexworld.com/license
- */
+
 class User{
     private $dbHost     = "localhost";
     private $dbUsername = "root";
     private $dbPassword = "";
-    private $dbName     = "codexworld";
-    private $userTbl    = "users";
+    private $dbName     = "tourism";
+    private $userTbl    = "member";
     
     public function __construct(){
         if(!isset($this->db)){

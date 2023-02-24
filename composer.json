@@ -1,0 +1,10 @@
+{
+    "autoload":{
+           "classmap":[
+             "forgetPass/"
+            ]
+    },
+    "require": {
+        "phpmailer/phpmailer": "^6.7"
+    }
+}

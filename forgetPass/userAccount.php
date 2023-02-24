@@ -5,7 +5,18 @@ session_start();
 //load and initialize user class
 include 'user.php';
 $user = new User();
-
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require '../vendor/phpmailer/phpmailer/src/Exception.php';
+require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require '../vendor/phpmailer/phpmailer/src/SMTP.php';
+$mail = new PHPMailer;
+if(!$mail->send()) {
+    echo 'Message was not sent.';
+    echo 'Mailer error: ' . $mail->ErrorInfo;
+  } else {
+    echo 'Message has been sent.';
+  }
 if(isset($_POST['forgotSubmit'])){
     //check whether email is empty
     if(!empty($_POST['email'])){
@@ -27,7 +38,7 @@ if(isset($_POST['forgotSubmit'])){
             $update = $user->update($data, $conditions);
             
             if($update){
-                $resetPassLink = 'http://codexworld.com/resetPassword.php?fp_code='.$uniqidStr;
+                $resetPassLink = 'resetPassword.php?fp_code='.$uniqidStr;
                 
                 //get user details
                 $con['where'] = array('email'=>$_POST['email']);
@@ -41,12 +52,12 @@ if(isset($_POST['forgotSubmit'])){
                 <br/>Recently a request was submitted to reset a password for your account. If this was a mistake, just ignore this email and nothing will happen.
                 <br/>To reset your password, visit the following link: <a href="'.$resetPassLink.'">'.$resetPassLink.'</a>
                 <br/><br/>Regards,
-                <br/>CodexWorld';
+                <br/>TunarTour';
                 //set content-type header for sending HTML email
                 $headers = "MIME-Version: 1.0" . "\r\n";
                 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                 //additional headers
-                $headers .= 'From: CodexWorld<sender@example.com>' . "\r\n";
+                $headers .= 'From: ngphyoe.tunar@gmail.com>' . "\r\n";
                 //send email
                 mail($to,$subject,$mailContent,$headers);
                 

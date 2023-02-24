@@ -16,6 +16,7 @@ if(isset($_POST['signupSubmit'])){
     $postData = $_POST; 
     $username= trim($_POST['username']); 
     $email = trim($_POST['email']); 
+    $phone = trim($_POST['phone']); 
     $password = trim($_POST['password']); 
     $confirm_password = trim($_POST['confirm_password']); 
      
@@ -26,9 +27,11 @@ if(isset($_POST['signupSubmit'])){
     if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)){ 
         $valErr .= 'Please enter a valid email.<br/>'; 
     } 
-   
+    if(empty($phone)){ 
+        $valErr .= 'Please enter your phone no.<br/>'; 
+    } 
     if(empty($password)){ 
-        $valErr .= 'Please enter login password.<br/>'; 
+        $valErr .= 'Please enter  password.<br/>'; 
     } 
     if(empty($confirm_password)){ 
         $valErr .= 'Please confirm your password.<br/>'; 
@@ -53,6 +56,7 @@ if(isset($_POST['signupSubmit'])){
             $userData = array( 
                 'username' => $username, 
                 'email' => $email, 
+                'phone' => $phone ,
                 'password' => $password_hash
             ); 
             $insert = $user->insert($userData); 
