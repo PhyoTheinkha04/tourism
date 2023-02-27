@@ -10,29 +10,7 @@ use phpmailer\phpmailer\PHPMailer;
 include 'user.php';
 $user = new User();
 
-
-$sessData = !empty($_SESSION['sessData'])?$_SESSION['sessData']:'';
-if(!empty($sessData['status']['msg'])){
-    $statusMsg = $sessData['status']['msg'];
-    $statusMsgType = $sessData['status']['type'];
-    unset($_SESSION['sessData']['status']);
-}
-?>
-<h2>Reset Your Account Password</h2>
-<?php echo !empty($statusMsg)?'<p class="'.$statusMsgType.'">'.$statusMsg.'</p>':''; ?>
-<div class="container">
-    <div class="regisFrm">
-        <form action="userAccount.php" method="post">
-            <input type="password" name="password" placeholder="PASSWORD" required="">
-            <input type="password" name="confirm_password" placeholder="CONFIRM PASSWORD" required="">
-            <div class="send-button">
-                <input type="hidden" name="fp_code" value="<?php echo $_REQUEST['fp_code'] ?>"/>
-                <input type="submit" name="resetSubmit" value="RESET PASSWORD">
-            </div>
-        </form>
-    </div>
-</div>
-if(isset($_POST['forgotSubmit'])){
+if(isset($_POST['forgotSubmit'])) {
     //check whether email is empty
     if(!empty($_POST['email'])){
         //check whether user exists in the database
@@ -53,7 +31,7 @@ if(isset($_POST['forgotSubmit'])){
             $update = $user->update($data, $conditions);
             
             if($update){
-                $resetPassLink = 'http://localhost/tourism/login/resetpassword.php?'. $uniqidStr;
+                $resetPassLink = 'http://localhost/tourism/login/resetpassword.php?forget_key='. $uniqidStr;
                 
                 //get user details
                 $con['where'] = array('email'=>$_POST['email']);
@@ -114,49 +92,48 @@ if(isset($_POST['forgotSubmit'])){
     $_SESSION['sessData'] = $sessData;
     //redirect to the forgot pasword page
     header("Location:forgotpassword.php");
-}elseif(isset($_POST['resetSubmit'])){
-    $fp_code = '';
-    if(!empty($_POST['password']) && !empty($_POST['confirm_password']) && !empty($_POST[' '])){
-        $fp_code = $_POST['fp_code'];
+} elseif(isset($_POST['resetSubmit'])) {
+    if(!empty($_POST['password']) && !empty($_POST['confirm_password']) && !empty($_POST['forget_key'])) {
+        $forget_key = $_POST['forget_key'];
         //password and confirm password comparison
-        if($_POST['password'] !== $_POST['confirm_password']){
+        if($_POST['password'] !== $_POST['confirm_password']) {
             $sessData['status']['type'] = 'error';
             $sessData['status']['msg'] = 'Confirm password must match with the password.'; 
-        }else{
+        } else {
             //check whether identity code exists in the database
-            $prevCon['where'] = array('forgot_pass_identity' => $fp_code);
+            $prevCon['where'] = array('forgot_pass_identity' => $forget_key);
             $prevCon['return_type'] = 'single';
             $prevUser = $user->getRows($prevCon);
+
+            
             if(!empty($prevUser)){
                 //update data with new password
                 $conditions = array(
-                    'forgot_pass_identity' => $fp_code
+                    'forgot_pass_identity' => $forget_key
                 );
                 $data = array(
                     'password' => md5($_POST['password'])
                 );
                 $update = $user->update($data, $conditions);
                 if($update){
-                    $sessData['status']['type'] = 'success';
+                    $sessData['status']['type'] = true;
                     $sessData['status']['msg'] = 'Your account password has been reset successfully. Please login with your new password.';
                 }else{
-                    $sessData['status']['type'] = 'error';
+                    $sessData['status']['type'] = false;
                     $sessData['status']['msg'] = 'Some problem occurred, please try again.';
                 }
             }else{
-                $sessData['status']['type'] = 'error';
+                $sessData['status']['type'] = false;
                 $sessData['status']['msg'] = 'You does not authorized to reset new password of this account.';
             }
         }
-    }else{
-        $sessData['status']['type'] = 'error';
-        $sessData['status']['msg'] = 'All fields are mandatory, please fill all the fields.'; 
-    }
-    //store reset password status into the session
+    } 
+
+    // //store reset password status into the session
     $_SESSION['sessData'] = $sessData;
-    if($sesssData['status']['type'] == 'success') {
-        header("Location: login.php");
+    if(isset($sessData['status']['type']) && $sessData['status']['type'] == true) {
+        header("Location: login.php");    
     } else {
-        header("Location: login.php");
+        header("Location: resetpassword.php?forget_key=".$_POST['forget_key']);
     }
 }
