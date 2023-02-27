@@ -15,10 +15,9 @@ if(!empty($sessData['status']['msg'])){
             <input type="password" name="password" placeholder="PASSWORD" required="">
             <input type="password" name="confirm_password" placeholder="CONFIRM PASSWORD" required="">
             <div class="send-button">
-                <input type="hidden" name="fp_code" value="<?php echo $_REQUEST['fp_code']; ?>"/>
+                <input type="hidden" name="fp_code" value="<?php echo $_REQUEST['fp_code'] ?>"/>
                 <input type="submit" name="resetSubmit" value="RESET PASSWORD">
             </div>
         </form>
     </div>
-</div>  
-         
+</div>

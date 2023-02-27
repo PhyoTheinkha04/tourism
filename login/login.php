@@ -33,7 +33,7 @@ if(!empty($sessData['userLoggedIn']) && !empty($sessData['userID'])){
 <?php if(!empty($userData)){ ?>
 <!-- <h2>Welcome <?php echo $userData['username']; ?>!</h2> -->
 <?php include 'index.php';?>
-<a href="userAccount.php?logoutSubmit=1" class="logout">Logout</a>
+<a href="user.Account.php?logoutSubmit=1" class="logout">Logout</a>
 
 <div class="regisFrm">
 </div>
@@ -75,7 +75,7 @@ if(!empty($sessData['userLoggedIn']) && !empty($sessData['userID'])){
                         <span><i class=""> </i></span>
                         <h2 style="margin-bottom:50px;">Login to Your Account</h2>
                         <div class="regisFrm">
-                            <form action="userAccount.php" class="form-box px-3" method="post">
+                            <form action="user.Account.php" class="form-box px-3" method="post">
                                 <div class="form-input">
                                     <div class="input-group">
                                         <input autocomplete="off" name="email" id="email" class="input" type="email"

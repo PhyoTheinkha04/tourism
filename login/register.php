@@ -57,7 +57,7 @@ if(!empty($sessData['postData'])){
                     <h4 class="title text-center mt-4">
                         Register For More Informations!
                     </h4>
-                    <form action="userAccount.php" class="form-box px-3" method="post">
+                    <form action="user.Account.php" class="form-box px-3" method="post">
                         <div class="">
                             <?php if(!empty($statusMsg)){ ?>
                             <?php echo $status; ?>
