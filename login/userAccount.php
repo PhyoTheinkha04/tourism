@@ -52,8 +52,8 @@ if(isset($_POST['forgotSubmit'])) {
                 $mail->SMTPSecure = "tls";
                 $mail->Port       = 587;
                 $mail->Host       = "smtp.gmail.com";
-                $mail->Username   = "ngphyoe.tunar@gmail.com";
-                $mail->Password   = "ksrazygtnqtzlwma";
+                $mail->Username   = "towtnaung042@gmail.com";
+                $mail->Password   = "rxzzfbpdkatetqmd";
                 $mail->IsHTML(true);
                 $mail->AddAddress($to);
                 $mail->SetFrom("ngphyoe.tunar@gmail.com", "tunar tour");

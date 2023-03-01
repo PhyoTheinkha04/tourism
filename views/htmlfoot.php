@@ -1,5 +1,5 @@
 <footer class="footer-copyright">
-        <div class="container">
+        <div class="container" style="overflow: hidden;">
             <div class="footer-content">
                 <div class="row">
 

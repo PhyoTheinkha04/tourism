@@ -50,10 +50,10 @@ include './html-head2.php';
                                     <li class="smooth-menu"><a href="#gallery">Destination</a></li>
                                     <li class="smooth-menu"><a href="#pack">Packages </a></li>
                                     <li class="smooth-menu"><a href="#spo">Special Offers</a></li>
-                                    <li class="smooth-menu"><a href="#blog">blog</a></li>
+                                    <li class="smooth-menu"><a href="#blog">News</a></li>
                                     <li class="smooth-menu"><a href="#subs">subscription</a></li> 
                                     <li>
-                                        <a href="userAccount.php?logoutSubmit=1" class="logout">Logout</a>
+                                        <a href="user.Account.php?logoutSubmit=1" class="logout">Logout</a>
                                     </li>
                                     
                                     <!--/.project-btn-->
@@ -973,7 +973,7 @@ include './html-head2.php';
                                             Lorem ipsum dolor sit amet, contur adip elit, sed do mod incid ut labore et
                                             dolore magna aliqua. Ut enim ad minim veniam
                                         </p>
-                                        <a href="#">Read More</a>
+                                        <a href="../views/blog.php">Read More</a>
                                     </div>
                                     <!--/.blog-txt-->
                                 </div>

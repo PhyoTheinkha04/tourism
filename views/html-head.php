@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Rufina:400,700" rel="stylesheet" />
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
     <!-- TITLE OF SITE -->
     <title>Travel</title>
@@ -48,7 +49,8 @@
 
     <!--responsive.css-->
     <link rel="stylesheet" href="../assets/css/responsive.css" />
-
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
+
 <body>
-    

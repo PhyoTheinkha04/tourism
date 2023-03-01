@@ -99,8 +99,9 @@ if(!empty($sessData['userLoggedIn']) && !empty($sessData['userID'])){
 
 
                                 <p>Don't have an account? <a href="register.php">Register</a></p>
+                                <a href="forgotPassword.php">Forgot password?</a>
+                            </form>
                         </div>
-                        </form>
                     </div>
                 </div>
             </div>

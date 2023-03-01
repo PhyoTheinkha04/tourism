@@ -97,7 +97,7 @@ if(!empty($sessData['postData'])){
                         </div>
                         <div class="form-input">
                             <div class="input-group">
-                                <input type="text" name="phone" class="input" placeholder="PHONE NUMBER" 
+                                <input type="text" name="phone" class="input" placeholder="PHONE NUMBER"
                                     value="<?php echo !empty($postData['phone'])?$postData['phone']:''; ?>" required="">
 
                                 <div></div>

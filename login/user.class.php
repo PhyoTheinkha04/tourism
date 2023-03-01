@@ -2,9 +2,6 @@
 /* 
  * User Class 
  * This class is used for database related (connect fetch, and insert) operations 
- * @author    CodexWorld.com 
- * @url       https://www.codexworld.com 
- * @license   https://www.codexworld.com/license 
  */ 
 class User{ 
     private $dbHost     = "localhost"; 
